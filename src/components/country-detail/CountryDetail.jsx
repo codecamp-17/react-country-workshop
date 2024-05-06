@@ -2,8 +2,8 @@ import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 function CountryDetail({ selectedCountry }) {
-  console.log(selectedCountry);
   const [lat, lng] = selectedCountry?.latlng || [];
+  console.log(lat, lng);
   return (
     <section className='detail'>
       <>
@@ -65,9 +65,7 @@ function CountryDetail({ selectedCountry }) {
                   url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
                 />
                 <Marker position={[lat, lng]}>
-                  <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
-                  </Popup>
+                  <Popup>{selectedCountry.capital.join(', ')}</Popup>
                 </Marker>
               </MapContainer>
             )}
