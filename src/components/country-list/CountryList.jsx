@@ -55,6 +55,15 @@ function CountryList({ allCountries, setAllCountries, setSelectedCountry }) {
         <input className='search__input' />
         <button className='search__btn'>search</button>
       </div>
+      <div>
+        <button>ASIA</button>
+        <button>EUROPE</button>
+        <button>NORTH-AMERICA</button>
+        <button>SOUTH-AMERICA</button>
+        <button>AFRICA</button>
+        <button>AUSTRALIA</button>
+        <button>ANTARCTICA</button>
+      </div>
       <div className='country'>
         {allCountries.length > 0 &&
           allCountries.map((country) => (

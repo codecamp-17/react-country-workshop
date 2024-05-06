@@ -7,6 +7,7 @@ function CountryMap({ lat, lng, capital }) {
   const map = useMap();
 
   useEffect(() => {
+    // set Center ของ MapContainer ใหม่
     map.setView([lat, lng]);
   }, [lat, lng]);
   return (
