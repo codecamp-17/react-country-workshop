@@ -25,14 +25,16 @@ function CountryList({ allCountries, setAllCountries, setSelectedCountry }) {
       // # 6th
       const data = response.data.map((country) => {
         let obj = {};
-        obj.name = country.name;
-        obj.flags = country.flags;
+        obj.name = country.name || {};
+        obj.flags = country.flags || {};
         obj.region = country.region;
         obj.population = country.population;
-        obj.capital = country.capital;
-        obj.languages = country.languages;
+        obj.capital = country.capital || [];
+        obj.languages = country.languages || {};
         obj.borders = country.borders || []; // maybe isLand
-        obj.currencies = country.currencies;
+        obj.currencies = country.currencies || {};
+        obj.latlng = country.latlng;
+
         return obj;
       });
       // #7 : SetState => Trigger Rerender
