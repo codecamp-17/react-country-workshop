@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import CountryItem from './CountryItem';
 
 function CountryList() {
   // 1st Run (initState), # 8th (allCountries !== []) from #7
@@ -49,14 +50,7 @@ function CountryList() {
       <div className='country'>
         {allCountries.length > 0 &&
           allCountries.map((country) => (
-            <div className='country__item'>
-              <div className='country__image--container'>
-                <img className='country__image' src={country.flags.png} alt={country.flags.alt} />
-              </div>
-              <div className='country__detail'>
-                <h6>{country.name.common}</h6>
-              </div>
-            </div>
+            <CountryItem country={country}/>
           ))}
       </div>
     </main>
