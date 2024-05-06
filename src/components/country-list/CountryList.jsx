@@ -31,7 +31,7 @@ function CountryList({ allCountries, setAllCountries, setSelectedCountry }) {
         obj.population = country.population;
         obj.capital = country.capital;
         obj.languages = country.languages;
-        obj.borders = country.borders;
+        obj.borders = country.borders || []; // maybe isLand
         obj.currencies = country.currencies;
         return obj;
       });
@@ -56,7 +56,11 @@ function CountryList({ allCountries, setAllCountries, setSelectedCountry }) {
       <div className='country'>
         {allCountries.length > 0 &&
           allCountries.map((country) => (
-            <CountryItem key={country.name.official} country={country} />
+            <CountryItem
+              key={country.name.official}
+              country={country}
+              setSelectedCountry={setSelectedCountry}
+            />
           ))}
       </div>
     </main>
