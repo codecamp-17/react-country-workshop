@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import CountryItem from './CountryItem';
 
-function CountryList({ allCountries, setAllCountries }) {
+function CountryList({ allCountries, setAllCountries, setSelectedCountry }) {
   // 0th : Props
   // 1st Run (initState), # 8th (allCountries !== []) from #7
 
@@ -32,6 +32,7 @@ function CountryList({ allCountries, setAllCountries }) {
       });
       // #7 : SetState => Trigger Rerender
       setAllCountries(data);
+      setSelectedCountry(data[0]);
     } catch (error) {
       console.log(error);
     }
