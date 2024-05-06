@@ -27,7 +27,12 @@ function CountryList({ allCountries, setAllCountries, setSelectedCountry }) {
         let obj = {};
         obj.name = country.name;
         obj.flags = country.flags;
-
+        obj.region = country.region;
+        obj.population = country.population;
+        obj.capital = country.capital;
+        obj.languages = country.languages;
+        obj.borders = country.borders;
+        obj.currencies = country.currencies;
         return obj;
       });
       // #7 : SetState => Trigger Rerender

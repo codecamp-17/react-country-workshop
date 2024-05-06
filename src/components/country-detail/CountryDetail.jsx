@@ -1,11 +1,11 @@
-function CountryDetail() {
+function CountryDetail({ selectedCountry }) {
   return (
     <section className='detail'>
       <>
         <>
           <div className='detail__text'>
             <div className='detail__text--info'>
-              <h1>Country Name</h1>
+              <h1>{selectedCountry?.name.common || ''}</h1>
               <p>
                 <span className='detail__text--name'>Region : </span>
               </p>

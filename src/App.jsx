@@ -17,7 +17,7 @@ function App() {
         setAllCountries={setAllCountries}
         setSelectedCountry={setSelectedCountry}
       />
-      <CountryDetail />
+      <CountryDetail selectedCountry={selectedCountry} />
       <BucketList />
     </div>
   );
