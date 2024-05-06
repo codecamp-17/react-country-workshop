@@ -2,30 +2,41 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function CountryList() {
+  // 1st Run (initState), # 8th (allCountries !== []) from #7
   const [allCountries, setAllCountries] = useState([]);
 
+  useEffect(() => {
+    // 4th : Fetch
+    fetchAllCountries();
+
+    return () => {
+      // #11 : Clean Up #4
+    };
+  }, []);
+
+  // 2nd (Declare, Register FN) , 9th ReDeclare FN
   const fetchAllCountries = async () => {
     try {
+      // # 5th
       const response = await axios.get('https://restcountries.com/v3.1/all');
+
+      // Obj Response => Obj {name:Name,flags:Flags}
+      // # 6th
       const data = response.data.map((country) => {
-        // Obj Response => Obj {name:Name,flags:Flags}
         let obj = {};
         obj.name = country.name;
         obj.flags = country.flags;
-        // #1
+
         return obj;
       });
-      // #2
+      // #7 : SetState => Trigger Rerender
       setAllCountries(data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  useEffect(() => {
-    // #3
-    fetchAllCountries();
-  }, []);
+  // 3rd Render, 10th Rerender
   return (
     <main className='main'>
       <header className='header'>
