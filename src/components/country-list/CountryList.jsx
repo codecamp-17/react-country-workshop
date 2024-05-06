@@ -34,6 +34,7 @@ function CountryList({ allCountries, setAllCountries, setSelectedCountry }) {
         obj.borders = country.borders || []; // maybe isLand
         obj.currencies = country.currencies || {};
         obj.latlng = country.latlng;
+        obj.area = country.area;
 
         return obj;
       });

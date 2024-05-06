@@ -13,6 +13,10 @@ function CountryDetail({ selectedCountry }) {
             <div className='detail__text--info'>
               <h1>{selectedCountry?.name.common || ''}</h1>
               <p>
+                <span className='detail__text--name'>Area : </span>
+                <span>{new Intl.NumberFormat().format(selectedCountry?.area)} km-sqr</span>
+              </p>
+              <p>
                 <span className='detail__text--name'>Region : </span>
                 <span>{selectedCountry?.region}</span>
               </p>
