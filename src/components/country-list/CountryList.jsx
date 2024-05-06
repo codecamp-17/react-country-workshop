@@ -49,7 +49,9 @@ function CountryList({ allCountries, setAllCountries }) {
       </div>
       <div className='country'>
         {allCountries.length > 0 &&
-          allCountries.map((country) => <CountryItem country={country} />)}
+          allCountries.map((country) => (
+            <CountryItem key={country.name.official} country={country} />
+          ))}
       </div>
     </main>
   );
