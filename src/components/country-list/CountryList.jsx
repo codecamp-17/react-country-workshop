@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import CountryItem from './CountryItem';
 
-function CountryList() {
+function CountryList({ allCountries, setAllCountries }) {
+  // 0th : Props
   // 1st Run (initState), # 8th (allCountries !== []) from #7
-  const [allCountries, setAllCountries] = useState([]);
 
   useEffect(() => {
     // 4th : Fetch
@@ -49,9 +49,7 @@ function CountryList() {
       </div>
       <div className='country'>
         {allCountries.length > 0 &&
-          allCountries.map((country) => (
-            <CountryItem country={country}/>
-          ))}
+          allCountries.map((country) => <CountryItem country={country} />)}
       </div>
     </main>
   );
