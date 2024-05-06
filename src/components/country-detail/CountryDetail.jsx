@@ -1,5 +1,6 @@
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import CountryMap from './CountryMap';
 
 function CountryDetail({ selectedCountry }) {
   const [lat, lng] = selectedCountry?.latlng || [];
@@ -64,9 +65,7 @@ function CountryDetail({ selectedCountry }) {
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                   url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
                 />
-                <Marker position={[lat, lng]}>
-                  <Popup>{selectedCountry.capital.join(', ')}</Popup>
-                </Marker>
+                <CountryMap lat={lat} lng={lng} capital={selectedCountry.capital} />
               </MapContainer>
             )}
           </div>
